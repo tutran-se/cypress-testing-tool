@@ -15,12 +15,18 @@ export default function HomePage() {
         </div>
         <div className="flex space-x-2 items-center text-center">
           <Link href="/register">
-            <a className="font-bold p-3 rounded block w-full bg-indigo-600  text-white shadow-md">
+            <a
+              id="authentication"
+              className="font-bold p-3 rounded block w-full bg-indigo-600  text-white shadow-md"
+            >
               Authentication Flow
             </a>
           </Link>
           <Link href="/manage-task">
-            <a className="font-bold p-3 rounded block w-full bg-pink-600  text-white shadow-md">
+            <a
+              id="task-manage"
+              className="font-bold p-3 rounded block w-full bg-pink-600  text-white shadow-md"
+            >
               Manage Task Flow
             </a>
           </Link>

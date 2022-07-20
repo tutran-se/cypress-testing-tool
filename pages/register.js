@@ -136,7 +136,9 @@ export default function RegisterPage() {
         </form>
         <div>
           {errorMessage && (
-            <div className="text-red-500 text-sm">{errorMessage}</div>
+            <div id="errorMessage" className="text-red-500 text-sm">
+              {errorMessage}
+            </div>
           )}
         </div>
       </div>
