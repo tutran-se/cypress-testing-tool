@@ -90,7 +90,9 @@ export default function RegisterPage() {
       </Head>
       <div className="flex flex-col space-y-6 p-10 shadow-md rounded">
         <header>
-          <h1 className="text-4xl font-black">Join Our Team</h1>
+          <h1 id="heading" className="text-4xl font-black">
+            Join Our Team
+          </h1>
           <p className="text-sm text-gray-400">
             Lorem ipsum, dolor sit amet consectetur adipisicing.
           </p>

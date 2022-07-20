@@ -53,7 +53,9 @@ export default function LoginPage() {
 
       <div className="flex flex-col space-y-6 p-10 shadow-md rounded">
         <header>
-          <h1 className="text-4xl font-black">Welcome back</h1>
+          <h1 id="heading" className="text-4xl font-black">
+            Welcome back
+          </h1>
           <p className="text-sm text-gray-400">
             Lorem ipsum, dolor sit amet consectetur adipisicing.
           </p>
@@ -99,7 +101,9 @@ export default function LoginPage() {
         </form>
         <div>
           {errorMessage && (
-            <div className="text-red-500 text-sm">{errorMessage}</div>
+            <div id="errorMessage" className="text-red-500 text-sm">
+              {errorMessage}
+            </div>
           )}
         </div>
       </div>

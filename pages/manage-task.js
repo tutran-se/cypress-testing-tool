@@ -73,6 +73,7 @@ export default function ManageTaskPage() {
                 placeholder="Task Name"
                 value={task}
                 onChange={(e) => setTask(e.target.value)}
+                name="task"
               />
             </fieldset>
             <button
@@ -93,12 +94,13 @@ export default function ManageTaskPage() {
             <div
               className="flex items-center justify-between border p-2 rounded font-bold border-gray-600"
               key={task.id}
-              id={task.id}
+              id="taskItem"
             >
               <p
                 onClick={() => {
                   handleComplete(task.id);
                 }}
+                id="taskTitle"
                 className={
                   task.isCompleted
                     ? "completed cursor-pointer"
@@ -108,6 +110,7 @@ export default function ManageTaskPage() {
                 {task.title}
               </p>
               <button
+                id="deleteBtn"
                 className={`bg-red-500 p-2 text-xs text-white rounded ${
                   isDeleting && task.id === taskId
                     ? "opacity-50 cursor-not-allowed"

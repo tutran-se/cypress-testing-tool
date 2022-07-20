@@ -4,10 +4,10 @@ describe("Authentication Flow", () => {
     cy.visit("http://localhost:3000");
     // click on the "Authentication Flow"
     cy.get("#authentication").click();
+    cy.wait(500);
   });
 
   it("the page heading should be 'Join Our Team' and button should be 'Register'", () => {
-    // Expect to see the register page
     cy.get("h1").contains("Join Our Team");
     cy.get("button").contains("Register");
   });
@@ -18,7 +18,6 @@ describe("Authentication Flow", () => {
     cy.get('input[type="email"]').focus();
   });
   it("show error 'Password is required' if password input is empty", () => {
-    // show error "Password is required" if password input is empty
     cy.get('input[type="email"]').type("test@gmail.com");
     cy.get("button").click();
     cy.get("#errorMessage").contains("Password is required");
@@ -75,6 +74,44 @@ describe("Authentication Flow", () => {
     cy.get("button").click();
     cy.get("#errorMessage").contains("Email already exists");
   });
-});
+  it("redirect to Login page after succesfully register", () => {
+    cy.get('input[type="email"]').clear().type("test@gmail.com");
+    cy.get('input[type="password"]').clear().type("@Password123");
+    cy.get("button").click();
+    cy.wait(500);
+    cy.get("h1").contains("Welcome back");
+    cy.get("button").contains("Login");
+  });
 
-// // show error "Email already exist" if email already exist
+  it("show error 'Email is required' if email input is empty", () => {
+    cy.get("button").click();
+    cy.get("#errorMessage").contains("Email is required");
+    cy.get('input[type="email"]').focus();
+  });
+  it("show error 'Password is required' if password input is empty", () => {
+    cy.get('input[type="email"]').type("test@gmail.com");
+    cy.get("button").click();
+    cy.get("#errorMessage").contains("Password is required");
+    cy.get('input[type="password"]').focus();
+  });
+  it("show error 'Invalid email' if email is not test@gmail.com", () => {
+    cy.get('input[type="email"]').clear().type("invalid@gmail.com");
+    cy.get('input[type="password"]').type("@Password123");
+    cy.get("button").click();
+    cy.get("#errorMessage").contains("Invalid email");
+  });
+  it("show error 'Invalid password' if password is @Password123", () => {
+    cy.get('input[type="email"]').clear().type("test@gmail.com");
+    cy.get('input[type="password"]').clear().type("IncorrectPassword");
+    cy.get("button").click();
+    cy.get("#errorMessage").contains("Invalid password");
+  });
+  it("redirect to Dashboard page if login successfully", () => {
+    cy.get('input[type="email"]').clear().type("test@gmail.com");
+    cy.get('input[type="password"]').clear().type("@Password123");
+    cy.get("button").click();
+    cy.wait(500);
+    cy.get("h1").contains("DashBoard");
+    cy.get("p").contains("test@gmail.com");
+  });
+});
