@@ -5,7 +5,7 @@ describe("Manage Task Flow", () => {
 
     // click on the "Manage Task Flow"
     cy.get("#task-manage").click();
-    cy.wait(200);
+    cy.wait(5000);
   });
 
   it("the page heading should be 'Manage Task'", () => {

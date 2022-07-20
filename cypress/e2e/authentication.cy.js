@@ -4,7 +4,7 @@ describe("Authentication Flow", () => {
     cy.visit("http://localhost:3000");
     // click on the "Authentication Flow"
     cy.get("#authentication").click();
-    cy.wait(500);
+    cy.wait(2500);
   });
 
   it("the page heading should be 'Join Our Team' and button should be 'Register'", () => {
@@ -78,7 +78,7 @@ describe("Authentication Flow", () => {
     cy.get('input[type="email"]').clear().type("test@gmail.com");
     cy.get('input[type="password"]').clear().type("@Password123");
     cy.get("button").click();
-    cy.wait(500);
+    cy.wait(2500);
     cy.get("h1").contains("Welcome back");
     cy.get("button").contains("Login");
   });
@@ -110,7 +110,7 @@ describe("Authentication Flow", () => {
     cy.get('input[type="email"]').clear().type("test@gmail.com");
     cy.get('input[type="password"]').clear().type("@Password123");
     cy.get("button").click();
-    cy.wait(500);
+    cy.wait(2500);
     cy.get("h1").contains("DashBoard");
     cy.get("p").contains("test@gmail.com");
   });
